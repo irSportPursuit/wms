@@ -38,7 +38,7 @@ def main(inn,out):
         elif ORD_STATE != 'new': # Raise on other order state
             raise NotImplementedError('Unable to handle order with state %s' % (ORD_STATE,))
 
-        PART_CODE = pick.get({'BOTSID': 'pickings'}, {'BOTSID': 'partner', 'code': None})
+        PART_CODE = pick.get({'BOTSID': 'pickings'}, {'BOTSID': 'partner', 'name': None})
         PART_COUNTRY = pick.get({'BOTSID': 'pickings'}, {'BOTSID': 'partner', 'country': None})
         ORD_REMARK = pick.get({'BOTSID': 'pickings', 'desc': None})
         ORD_TYPE = pick.get({'BOTSID': 'pickings', 'crossdock': None}) == "1" and 'XDOCK' or 'STORAGE'
